@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #2769b3;
+  --primary-hover: #235ea2;
+  --secondary-color: #1dcad3;
+  --secondary-hover: #1ec1c9;
+  --danger-color: #ff4747;
+  --warning-color: #ff983f;
+  --success-color: #44ff79;
+  --text-color: #00172a;
+  --text-secondary-color: #c2c2c2;
+  --primary-bg: #f1f8ff;
+  --danger-bg: #ffd2d2;
+  --warning-bg: #ffe8d3;
+  --success-bg: #daffe5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+@layer components {
+  * {
+    @apply transition-all duration-300;
+  }
+
+  h1 {
+    @apply font-bold text-2xl md:text-5xl mb-6;
+  }
+
+  h3 {
+    @apply font-bold text-3xl mb-6;
+  }
+
+  h5 {
+    @apply font-bold text-xl mb-6;
+  }
+
+  .input-text {
+    @apply rounded-lg border w-full px-5 py-3 text-sm focus:outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--primary-color)] hover:bg-[var(--primary-hover)] text-white font-medium px-8 py-2 rounded-full;
+  }
+
+  .btn-secondary {
+    @apply bg-[var(--secondary-color)] hover:bg-[var(--primary-hover)] text-white font-medium px-8 py-2 rounded-full;
+  }
+
+  .btn-other {
+    @apply bg-[var(--text-secondary-color)] text-white font-medium px-8 py-2 rounded-full;
+  }
+
+  .container {
+    @apply w-[90vw] md:w-[80vw];
+  }
+}
