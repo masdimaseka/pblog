@@ -137,7 +137,7 @@ onMounted(() => {
       <div v-show="!token">
         <h3 class="text-center">Join to Create Your Blog</h3>
         <div class="flex justify-center">
-          <div class="w-[40vw]">
+          <div class="w-full lg:w-[40vw]">
             <Register />
           </div>
         </div>
