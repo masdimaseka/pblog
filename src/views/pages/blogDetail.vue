@@ -66,7 +66,7 @@ onMounted(() => {
       <Loading class="w-12 h-12" />
     </div>
     <div class="flex justify-center items-center">
-      <div v-if="blogDetail" class="w-[80vw] flex flex-col gap-16 p-6 md:p-4">
+      <div v-if="blogDetail" class="flex flex-col gap-16">
         <div>
           <div
             class="card rounded-xl drop-shadow-md bg-white p-2 overflow-hidden mb-10"

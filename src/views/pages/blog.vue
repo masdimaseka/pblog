@@ -56,7 +56,6 @@ const search = async () => {
         blogLists.value = response.data;
         isMax.value = true;
         cards.value = blogLists.value.length;
-        console.log(cards.value, blogLists.value.length);
       }
     } catch (error) {
       console.log(error);
