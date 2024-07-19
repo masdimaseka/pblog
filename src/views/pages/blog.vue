@@ -11,6 +11,7 @@ const isNotFound = ref(false);
 const isLoading = ref(false);
 const isMax = ref(false);
 const cards = ref(12);
+const alertMessage = ref("");
 
 const getData = async () => {
   isLoading.value = true;
@@ -52,10 +53,16 @@ const search = async () => {
           },
         }
       );
-      if (response.status == 200) {
+      if (response.status == 200 && response.data != "") {
         blogLists.value = response.data;
         isMax.value = true;
         cards.value = blogLists.value.length;
+      } else {
+        isNotFound.value = true;
+        hideAlert();
+        cards.value = 12;
+        alertMessage.value = "Blog not found";
+        getData();
       }
     } catch (error) {
       console.log(error);
@@ -65,7 +72,8 @@ const search = async () => {
   } else {
     isNotFound.value = true;
     hideAlert();
-    cards.value = blogLists.value.length;
+    cards.value = 12;
+    alertMessage.value = "Insert blog name!";
     getData();
 
     if (
@@ -89,7 +97,7 @@ const loadCards = () => {
 </script>
 
 <template>
-  <Alert v-show="isNotFound" type="danger" message="Blog not found" />
+  <Alert v-show="isNotFound" type="danger" :message="alertMessage" />
   <div class="mx-auto pt-[15vh] lg:pt-[20vh] container mb-40">
     <div
       class="flex flex-col lg:flex-row justify-between mb-8 lg:mb-6 gap-3 lg:gap-0"
